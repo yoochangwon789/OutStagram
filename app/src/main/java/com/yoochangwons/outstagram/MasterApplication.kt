@@ -8,20 +8,29 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MasterApplication: Application() {
+class MasterApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
     }
 
     fun createNetworkRetrofit() {
+
         val header = Interceptor {
             val original = it.request()
-            val header = original.newBuilder()
-                .header("Authorization", "")
-                .build()
-            it.proceed(header)
+            if (userIsLoginCheck()) {
+                getUserToken()?.let { token ->
+                    val request = original.newBuilder()
+                        .header("Authorization", "token: " + token)
+                        .build()
+                    it.proceed(request)
+                }
+            } else {
+                it.proceed(original)
+            }
+
         }
+
 
         val client = OkHttpClient.Builder()
             .addInterceptor(header)
@@ -46,7 +55,7 @@ class MasterApplication: Application() {
         val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
         val token = sp.getString("login_sp", "null")
 
-        return if (token != "null") token
-        else null
+        return if (token == "null") null
+        else token
     }
 }
