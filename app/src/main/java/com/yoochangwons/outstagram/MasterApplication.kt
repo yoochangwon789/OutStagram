@@ -1,6 +1,7 @@
 package com.yoochangwons.outstagram
 
 import android.app.Application
+import android.content.Context
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -38,7 +39,11 @@ class MasterApplication: Application() {
 
     }
 
-    fun getToken(): String {
+    fun getUserToken(): String? {
+        val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
+        val token = sp.getString("login_sp", "null")
 
+        return if (token != "null") token
+        else null
     }
 }
