@@ -36,6 +36,9 @@ class LoginActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                         (application as MasterApplication).createNetworkRetrofit()
+                        startActivity(
+                            Intent(this@LoginActivity, OutStagramPostListActivity::class.java)
+                        )
                     }
                 }
 
