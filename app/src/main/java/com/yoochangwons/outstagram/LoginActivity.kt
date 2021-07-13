@@ -3,7 +3,11 @@ package com.yoochangwons.outstagram
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.yoochangwons.outstagram.databinding.ActivityLoginBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,7 +26,22 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.loginUp.setOnClickListener {
-            (application as MasterApplication).service
+            (application as MasterApplication).service.login(
+                binding.loginInputId.text.toString(), binding.loginInputPassword.text.toString()
+            ).enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(
+                            this@LoginActivity, "로그인 되었습니다.",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        (application as MasterApplication).createNetworkRetrofit()
+                    }
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                }
+            })
         }
     }
 }

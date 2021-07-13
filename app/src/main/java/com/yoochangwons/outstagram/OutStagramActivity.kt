@@ -3,6 +3,7 @@ package com.yoochangwons.outstagram
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.opengl.GLES30
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -48,6 +49,9 @@ class OutStagramActivity : AppCompatActivity() {
             val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
             val token = sp.getString("login_sp", "token 이 존재하지 않습니다.")
             Log.d("abccc", "token : $token")
+            startActivity(
+                Intent(activity, LoginActivity::class.java)
+            )
         }
     }
 
