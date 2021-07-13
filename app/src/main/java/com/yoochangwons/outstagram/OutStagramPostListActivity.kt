@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yoochangwons.outstagram.databinding.ActivityOutStagramPostListBinding
@@ -29,6 +30,14 @@ class OutStagramPostListActivity : AppCompatActivity() {
                     call: Call<ArrayList<Post>>,
                     response: Response<ArrayList<Post>>
                 ) {
+                    if (response.isSuccessful) {
+                        val postList = response.body()
+                        val adapter = PostAdapter(postList!!, this@OutStagramPostListActivity)
+                        binding.postRecyclerView.apply {
+                            this.adapter = adapter
+                            layoutManager = LinearLayoutManager(this@OutStagramPostListActivity)
+                        }
+                    }
                 }
 
                 override fun onFailure(call: Call<ArrayList<Post>>, t: Throwable) {
