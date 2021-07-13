@@ -26,14 +26,13 @@ class MasterApplication : Application() {
             if (userIsLoginCheck()) {
                 getUserToken()?.let { token ->
                     val request = original.newBuilder()
-                        .header("Authorization", "token: " + token)
+                        .header("Authorization", "token " + token)
                         .build()
                     it.proceed(request)
                 }
             } else {
                 it.proceed(original)
             }
-
         }
 
         val client = OkHttpClient.Builder()

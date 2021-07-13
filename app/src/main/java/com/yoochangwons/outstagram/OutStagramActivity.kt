@@ -3,9 +3,12 @@ package com.yoochangwons.outstagram
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.opengl.GLES30
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.yoochangwons.outstagram.databinding.ActivityOutStagramBinding
 import retrofit2.Call
@@ -14,7 +17,11 @@ import retrofit2.Response
 
 class OutStagramActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityOutStagramBinding
+    private lateinit var binding: ActivityOutStagramBinding
+
+    private lateinit var inputId: EditText
+    private lateinit var passwordOne: EditText
+    private lateinit var passwordTwo: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +29,14 @@ class OutStagramActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        initView()
         setOnClick(this)
+    }
+
+    fun initView() {
+        inputId = binding.inputId
+        passwordOne = binding.inputPasswordOne
+        passwordTwo = binding.inputPasswordTwo
     }
 
     fun setOnClick(activity: Activity) {
@@ -65,14 +79,14 @@ class OutStagramActivity : AppCompatActivity() {
     }
 
     fun getId(): String {
-        return binding.inputId.text.toString()
+        return inputId.text.toString()
     }
 
     fun getPasswordOne(): String {
-        return binding.inputPasswordOne.text.toString()
+        return passwordOne.text.toString()
     }
 
     fun getPasswordTwo(): String {
-        return binding.inputPasswordTwo.text.toString()
+        return passwordTwo.text.toString()
     }
 }

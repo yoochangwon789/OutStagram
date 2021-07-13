@@ -13,6 +13,6 @@ interface ServiceNetworkRetrofit {
     fun createUser(
         @Field("username")username: String,
         @Field("password1")password1: String,
-        @Field("password1")password2: String,
+        @Field("password2")password2: String
     ) : Call<User>
 }
