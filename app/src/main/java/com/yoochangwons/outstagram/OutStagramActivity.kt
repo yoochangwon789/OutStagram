@@ -35,7 +35,7 @@ class OutStagramActivity : AppCompatActivity() {
     }
 
     fun register(activity: Activity) {
-
+        (application as MasterApplication).ser
     }
 
     @SuppressLint("CommitPrefEdits")

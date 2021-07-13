@@ -10,6 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MasterApplication : Application() {
 
+    lateinit var service: ServiceNetworkRetrofit
+
     override fun onCreate() {
         super.onCreate()
     }
@@ -41,6 +43,7 @@ class MasterApplication : Application() {
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
+        service = retrofit.create(ServiceNetworkRetrofit::class.java)
     }
 
     fun userIsLoginCheck(): Boolean {
