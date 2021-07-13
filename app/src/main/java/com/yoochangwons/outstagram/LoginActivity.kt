@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.loginUp.setOnClickListener {
-
+            (application as MasterApplication).service
         }
     }
 }
