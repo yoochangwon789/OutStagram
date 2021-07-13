@@ -31,7 +31,6 @@ class MasterApplication : Application() {
 
         }
 
-
         val client = OkHttpClient.Builder()
             .addInterceptor(header)
             .addNetworkInterceptor(StethoInterceptor())

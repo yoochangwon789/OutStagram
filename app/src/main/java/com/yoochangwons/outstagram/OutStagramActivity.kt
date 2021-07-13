@@ -14,4 +14,16 @@ class OutStagramActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
     }
+
+    fun getId(): String {
+        return binding.inputId.text.toString()
+    }
+
+    fun getPasswordOne(): String {
+        return binding.inputPasswordOne.text.toString()
+    }
+
+    fun getPasswordTwo(): String {
+        return binding.inputPasswordTwo.text.toString()
+    }
 }
