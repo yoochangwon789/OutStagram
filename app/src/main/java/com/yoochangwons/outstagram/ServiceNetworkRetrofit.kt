@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 interface ServiceNetworkRetrofit {
 
-    @POST
+    @POST("user/signup/")
     @FormUrlEncoded
     fun createUser(
         @Field("username")username: String,

@@ -21,15 +21,19 @@ class OutStagramActivity : AppCompatActivity() {
         binding = ActivityOutStagramBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        setOnClick(this)
     }
 
-    fun setOnClick() {
+    fun setOnClick(activity: Activity) {
         binding.signUp.setOnClickListener {
-
+            register(activity)
         }
 
         binding.loginUp.setOnClickListener {
-
+            val sp = getSharedPreferences("login_sp", Context.MODE_PRIVATE)
+            val token = sp.getString("login_sp", "token 이 존재하지 않습니다.")
+            Log.d("abccc", "token : $token")
         }
     }
 
