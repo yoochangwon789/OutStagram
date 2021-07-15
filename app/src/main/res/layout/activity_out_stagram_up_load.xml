@@ -1,9 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#866EB1"
     tools:context=".OutStagramUpLoadActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/upload_content_text"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="32dp"/>
+
+    <TextView
+        android:id="@+id/upload_picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사진 찾기"
+        android:background="#ffffff"
+        android:textColor="#866EB1"
+        android:textSize="35dp"
+        android:gravity="center"
+        android:layout_below="@+id/upload_content_text"
+        android:layout_margin="32dp"/>
+
+    <TextView
+        android:id="@+id/upload_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="업로드"
+        android:background="#ffffff"
+        android:textColor="#866EB1"
+        android:textSize="35dp"
+        android:gravity="center"
+        android:layout_below="@+id/upload_picture"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/upload_post_all_view"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="전체"
+            android:textColor="#866EB1"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/upload_my_post_list_view"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="#6F47B6"
+            android:gravity="center"
+            android:text="본인"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/upload_current"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="업로드"
+            android:textColor="#866EB1"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/upload_user_info_view"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="#6F47B6"
+            android:gravity="center"
+            android:text="정보"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>
