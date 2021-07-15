@@ -1,6 +1,7 @@
 package com.yoochangwons.outstagram
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yoochangwons.outstagram.databinding.ActivityOutStagrmLoginInfoBinding
@@ -16,7 +17,12 @@ class OutStagrmLoginInfoActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.userInfoLogoutBtn.setOnClickListener {
-
+            logoutCheck()
+            (application as MasterApplication).createNetworkRetrofit()
+            finish()
+            startActivity(
+                Intent(this, LoginActivity::class.java)
+            )
         }
     }
 
