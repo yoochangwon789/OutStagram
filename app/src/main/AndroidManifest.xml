@@ -15,7 +15,7 @@
         android:theme="@style/Theme.OutStagram">
         <activity android:name=".OutStagrmLoginInfoActivity"></activity>
         <activity android:name=".OutStagramUpLoadActivity" />
-        <activity android:name=".OutStrgramMyPostListActivity" />
+        <activity android:name=".OutStagramMyPostListActivity" />
         <activity android:name=".OutStagramPostListActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".OutStagramActivity">

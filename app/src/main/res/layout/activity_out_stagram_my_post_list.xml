@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#866EB1"
     android:orientation="vertical"
-    tools:context=".OutStrgramMyPostListActivity">
+    tools:context=".OutStagramMyPostListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_post_recycler_view"

@@ -36,7 +36,7 @@ class OutStagramUpLoadActivity : AppCompatActivity() {
 
         binding.uploadMyPostListView.setOnClickListener {
             startActivity(
-                Intent(this, OutStrgramMyPostListActivity::class.java)
+                Intent(this, OutStagramMyPostListActivity::class.java)
             )
         }
 
@@ -87,7 +87,7 @@ class OutStagramUpLoadActivity : AppCompatActivity() {
                     val post = response.body()
                     finish()
                     startActivity(
-                        Intent(this@OutStagramUpLoadActivity, OutStrgramMyPostListActivity::class.java)
+                        Intent(this@OutStagramUpLoadActivity, OutStagramMyPostListActivity::class.java)
                     )
                 }
 

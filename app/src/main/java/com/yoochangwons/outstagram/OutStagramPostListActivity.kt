@@ -59,7 +59,7 @@ class OutStagramPostListActivity : AppCompatActivity() {
 
         binding.postMyPostView.setOnClickListener {
             startActivity(
-                Intent(this, OutStrgramMyPostListActivity::class.java)
+                Intent(this, OutStagramMyPostListActivity::class.java)
             )
         }
     }
