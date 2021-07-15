@@ -16,6 +16,12 @@ class OutStagrmLoginInfoActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        binding.userInfoAllPostListView.setOnClickListener {
+            startActivity(
+                Intent(this, OutStagramPostListActivity::class.java)
+            )
+        }
+
         binding.userInfoLogoutBtn.setOnClickListener {
             logoutCheck()
             (application as MasterApplication).createNetworkRetrofit()
