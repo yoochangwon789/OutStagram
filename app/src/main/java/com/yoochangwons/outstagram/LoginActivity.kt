@@ -46,6 +46,8 @@ class LoginActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<User>, t: Throwable) {
                 }
             })
+
+            saveUserId(binding.loginInputId.text.toString())
         }
     }
 
