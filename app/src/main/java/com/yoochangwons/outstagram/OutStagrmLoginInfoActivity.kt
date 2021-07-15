@@ -16,6 +16,10 @@ class OutStagrmLoginInfoActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        val sp = getSharedPreferences("userId", Context.MODE_PRIVATE)
+        val userId = sp.getString("userId", "null")
+        binding.userInfoUserId.text = userId
+
         binding.userInfoAllPostListView.setOnClickListener {
             startActivity(
                 Intent(this, OutStagramPostListActivity::class.java)
