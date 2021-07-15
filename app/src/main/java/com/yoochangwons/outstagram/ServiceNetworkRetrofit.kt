@@ -27,7 +27,7 @@ interface ServiceNetworkRetrofit {
     fun getAllPosts(): Call<ArrayList<Post>>
 
     @Multipart
-    @POST("/instagram/post")
+    @POST("/instagram/post/")
     fun upLoadPost(
         @Part image: MultipartBody.Part,
         @Part("content") requestBody: RequestBody
