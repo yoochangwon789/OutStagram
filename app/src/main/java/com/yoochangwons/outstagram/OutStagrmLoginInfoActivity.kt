@@ -34,6 +34,17 @@ class OutStagrmLoginInfoActivity : AppCompatActivity() {
                 Intent(this, LoginActivity::class.java)
             )
         }
+
+        binding.userInfoMyPostListView.setOnClickListener {
+            startActivity(
+                Intent(this, OutStagramMyPostListActivity::class.java)
+            )
+        }
+        binding.userInfoUpLoadView.setOnClickListener {
+            startActivity(
+                Intent(this, OutStagramUpLoadActivity::class.java)
+            )
+        }
     }
 
     fun logoutCheck() {
