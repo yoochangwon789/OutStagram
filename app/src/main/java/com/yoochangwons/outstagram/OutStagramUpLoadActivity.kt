@@ -6,15 +6,45 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import com.yoochangwons.outstagram.databinding.ActivityOutStagramUpLoadBinding
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.File
 
 class OutStagramUpLoadActivity : AppCompatActivity() {
 
     lateinit var filePath: String
+    private lateinit var binding: ActivityOutStagramUpLoadBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_out_stagram_up_load)
+        binding = ActivityOutStagramUpLoadBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        binding.uploadPicture.setOnClickListener {
+            getPicture()
+        }
+
+        binding.uploadButton.setOnClickListener {
+            upLoadPost()
+        }
+
+        binding.uploadMyPostListView.setOnClickListener {
+            startActivity(
+                Intent(this, OutStrgramMyPostListActivity::class.java)
+            )
+        }
+
+        binding.uploadUserInfoView.setOnClickListener {
+            startActivity(
+                Intent(this, OutStagrmLoginInfoActivity::class.java)
+            )
+        }
     }
 
     fun getPicture() {
@@ -43,5 +73,32 @@ class OutStagramUpLoadActivity : AppCompatActivity() {
         }
 
         return cursor.getString(columnIndex)
+    }
+
+    fun upLoadPost() {
+        val file = File(filePath)
+        val fileRequestBody = RequestBody.create(MediaType.parse("image/*"), file)
+        val part = MultipartBody.Part.createFormData("image", file.name, fileRequestBody)
+        val content = RequestBody.create(MediaType.parse("text/plain"), getContent())
+
+        (application as MasterApplication).service.upLoadPost(part, content).enqueue(
+            object : Callback<Post> {
+                override fun onResponse(call: Call<Post>, response: Response<Post>) {
+                    val post = response.body()
+                    finish()
+                    startActivity(
+                        Intent(this@OutStagramUpLoadActivity, OutStrgramMyPostListActivity::class.java)
+                    )
+                }
+
+                override fun onFailure(call: Call<Post>, t: Throwable) {
+                }
+
+            }
+        )
+    }
+
+    fun getContent(): String {
+        return binding.uploadContentText.text.toString()
     }
 }
