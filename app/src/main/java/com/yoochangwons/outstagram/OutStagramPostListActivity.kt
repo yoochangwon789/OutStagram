@@ -50,6 +50,18 @@ class OutStagramPostListActivity : AppCompatActivity() {
                 Intent(this, OutStagrmLoginInfoActivity::class.java)
             )
         }
+
+        binding.postUpLoadView.setOnClickListener {
+            startActivity(
+                Intent(this, OutStagramUpLoadActivity::class.java)
+            )
+        }
+
+        binding.postMyPostView.setOnClickListener {
+            startActivity(
+                Intent(this, OutStrgramMyPostListActivity::class.java)
+            )
+        }
     }
 }
 
