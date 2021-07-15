@@ -4,40 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#866EB1"
+    android:orientation="vertical"
     tools:context=".OutStagramUpLoadActivity">
 
     <EditText
         android:id="@+id/upload_content_text"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_margin="32dp"/>
+        android:layout_margin="32dp" />
 
     <TextView
         android:id="@+id/upload_picture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="사진 찾기"
-        android:background="#ffffff"
-        android:textColor="#866EB1"
-        android:textSize="35dp"
-        android:gravity="center"
         android:layout_below="@+id/upload_content_text"
-        android:layout_margin="32dp"/>
+        android:layout_margin="32dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="사진 찾기"
+        android:textColor="#866EB1"
+        android:textSize="35dp" />
 
     <TextView
         android:id="@+id/upload_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="업로드"
-        android:background="#ffffff"
-        android:textColor="#866EB1"
-        android:textSize="35dp"
-        android:gravity="center"
         android:layout_below="@+id/upload_picture"
         android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"/>
+        android:layout_marginRight="32dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="업로드"
+        android:textColor="#866EB1"
+        android:textSize="35dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
